@@ -6,8 +6,6 @@
   "client": [
   ],
   "mixins": [
-    "HostAPIMixin",
-    "LuaRuntimeMixin"
   ],
   "injectors": {
     "defaultRequire": 1
