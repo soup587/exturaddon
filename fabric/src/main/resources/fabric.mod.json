@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "exturaddon",
+  "version": "${version}",
+  "name": "Exturaddon",
+  "description": "",
+  "authors": [
+    ""
+  ],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/exturaddon/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "soup587.exturaddon.fabric.ExturaddonFabric"
+    ],
+    "client": [
+      "soup587.exturaddon.fabric.client.ExturaddonFabricClient"
+    ]
+  },
+  "mixins": [
+    "exturaddon.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "~1.20.1",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

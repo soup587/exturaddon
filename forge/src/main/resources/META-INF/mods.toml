@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+#issueTrackerURL = ""
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "exturaddon"
+version = "${version}"
+displayName = "Exturaddon"
+authors = ""
+description = '''
+
+'''
+#logoFile = ""
+
+[[dependencies.exturaddon]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.exturaddon]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.exturaddon]]
+modId = "figura"
+mandatory = true
+versionRange = "[${figura_version},)"
+ordering = "AFTER"
+side = "BOTH"
