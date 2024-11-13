@@ -6,8 +6,13 @@
   "client": [
   ],
   "mixins": [
+    "AvatarMixin",
+    "EventsAPIMixin",
+    "FiguraAPIManagerMixin",
+    "FiguraConfigsMixin",
     "HostAPIMixin",
-    "LuaRuntimeMixin"
+    "LuaEventMixin",
+    "FiguraLuaRuntimeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

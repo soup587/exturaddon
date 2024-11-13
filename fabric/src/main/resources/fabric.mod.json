@@ -17,18 +17,15 @@
     "main": [
       "soup587.exturaddon.fabric.ExturaddonFabric"
     ],
-    "figura_api": [
-      "soup587.exturaddon.Exturaddon"
-    ],
     "client": [
       "soup587.exturaddon.fabric.client.ExturaddonFabricClient"
     ]
   },
   "mixins": [
-    "exturaddon.mixins.json"
+    "exturaddon-common.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.9",
+    "fabricloader": ">=0.16.0",
     "minecraft": "~1.20.1",
     "java": ">=17"
   },
