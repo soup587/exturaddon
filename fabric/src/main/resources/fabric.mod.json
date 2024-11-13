@@ -17,6 +17,9 @@
     "main": [
       "soup587.exturaddon.fabric.ExturaddonFabric"
     ],
+    "figura_api": [
+      "soup587.exturaddon.Exturaddon"
+    ],
     "client": [
       "soup587.exturaddon.fabric.client.ExturaddonFabricClient"
     ]
