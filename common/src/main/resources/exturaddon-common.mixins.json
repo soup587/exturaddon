@@ -7,12 +7,16 @@
   ],
   "mixins": [
     "AvatarMixin",
+    "ClientAPIMixin",
+    "EntityAPIMixin",
     "EventsAPIMixin",
     "FiguraAPIManagerMixin",
     "FiguraConfigsMixin",
+    "FiguraLuaRuntimeMixin",
     "HostAPIMixin",
+    "LivingEntityAPIMixin",
     "LuaEventMixin",
-    "FiguraLuaRuntimeMixin"
+    "PlayerAPIMixin"
   ],
   "injectors": {
     "defaultRequire": 1

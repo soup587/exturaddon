@@ -13,9 +13,7 @@ import java.util.HashMap;
 @Mixin(value = Configs.class, remap = false)
 public class FiguraConfigsMixin {
 
-    @Shadow
-    @Final
-    public static HashMap<Integer, HashMap<ConfigType<?>, String>> CONFIG_UPDATES;
+    @Shadow @Final public static HashMap<Integer, HashMap<ConfigType<?>, String>> CONFIG_UPDATES;
 
 
 }

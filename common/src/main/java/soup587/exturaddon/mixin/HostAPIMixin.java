@@ -23,6 +23,8 @@ import org.figuramc.figura.lua.api.HostAPI;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import soup587.exturaddon.Exturaddon;
+import soup587.exturaddon.overrides.ExturaInput;
+import soup587.exturaddon.overrides.NoInput;
 
 import java.util.Optional;
 
@@ -152,62 +154,62 @@ public class HostAPIMixin {
         player.sendOpenInventory();
     }
 
-//    @LuaWhitelist
-//    @LuaMethodDoc(
-//            overloads = {
-//                    @LuaMethodOverload(
-//                            argumentTypes = {Boolean.class},
-//                            argumentNames = {"playerMovement"}
-//                    )
-//            },
-//            value = "host.set_player_movement"
-//    )
-//    public void setPlayerMovement(Boolean playerMovement) {
-//        LocalPlayer player;
-//        if (!this.isHost || (player = this.minecraft.player) == null) return;
-//        player.input = (playerMovement ? new ExturaInput(this.minecraft.options) : new NoInput());
-//
-//    }
-//    @LuaWhitelist
-//    @LuaMethodDoc(
-//            overloads = {
-//                    @LuaMethodOverload(
-//                            argumentTypes = {String.class,Boolean.class},
-//                            argumentNames = {"input","state"}
-//                    ),
-//                    @LuaMethodOverload(
-//                            argumentTypes = {String.class},
-//                            argumentNames = {"input","state"}
-//                    ),
-//            },
-//            value = "host.override_player_movement"
-//    )
-//    public void overridePlayerMovement(@LuaNotNil String input, Boolean sta) {
-//        if(!canExturaCheat()) return;
-//        LocalPlayer player;
-//        if (!this.isHost || (player = this.minecraft.player) == null) return;
-//        if(!(player.input instanceof ExturaInput)){
-//            player.input = new ExturaInput(this.minecraft.options);
-//        }
-//        int state = sta == null ? 0 : sta ? 2 : 1;
-//        ExturaInput inputObj = (ExturaInput) player.input;
-//        switch(input.toLowerCase()){
-//            case "up": inputObj.upOverride = state; break;
-//            case "down": inputObj.downOverride = state; break;
-//            case "left": inputObj.leftOverride = state; break;
-//            case "right": inputObj.rightOverride = state; break;
-//            case "jump": inputObj.jumpOverride = state; break;
-//            case "shift": inputObj.shiftOverride = state; break;
-//            default: throw new LuaError("Invalid input");
-//        }
-//    }
-//    @LuaWhitelist
-//    @LuaMethodDoc("host.get_player_movement")
-//    public Boolean getPlayerMovement() {
-//        LocalPlayer player;
-//        if (!this.isHost || (player = this.minecraft.player) == null) return true;
-//        return (player.input instanceof NoInput);
-//    }
+    @LuaWhitelist
+    @LuaMethodDoc(
+            overloads = {
+                    @LuaMethodOverload(
+                            argumentTypes = {Boolean.class},
+                            argumentNames = {"playerMovement"}
+                    )
+            },
+            value = "host.set_player_movement"
+    )
+    public void setPlayerMovement(Boolean playerMovement) {
+        LocalPlayer player;
+        if (!this.isHost || (player = this.minecraft.player) == null) return;
+        player.input = (playerMovement ? new ExturaInput(this.minecraft.options) : new NoInput());
+
+    }
+    @LuaWhitelist
+    @LuaMethodDoc(
+            overloads = {
+                    @LuaMethodOverload(
+                            argumentTypes = {String.class,Boolean.class},
+                            argumentNames = {"input","state"}
+                    ),
+                    @LuaMethodOverload(
+                            argumentTypes = {String.class},
+                            argumentNames = {"input","state"}
+                    ),
+            },
+            value = "host.override_player_movement"
+    )
+    public void overridePlayerMovement(@LuaNotNil String input, Boolean sta) {
+        if(!canExturaCheat()) return;
+        LocalPlayer player;
+        if (!this.isHost || (player = this.minecraft.player) == null) return;
+        if(!(player.input instanceof ExturaInput)){
+            player.input = new ExturaInput(this.minecraft.options);
+        }
+        int state = sta == null ? 0 : sta ? 2 : 1;
+        ExturaInput inputObj = (ExturaInput) player.input;
+        switch(input.toLowerCase()){
+            case "up": inputObj.upOverride = state; break;
+            case "down": inputObj.downOverride = state; break;
+            case "left": inputObj.leftOverride = state; break;
+            case "right": inputObj.rightOverride = state; break;
+            case "jump": inputObj.jumpOverride = state; break;
+            case "shift": inputObj.shiftOverride = state; break;
+            default: throw new LuaError("Invalid input");
+        }
+    }
+    @LuaWhitelist
+    @LuaMethodDoc("host.get_player_movement")
+    public Boolean getPlayerMovement() {
+        LocalPlayer player;
+        if (!this.isHost || (player = this.minecraft.player) == null) return true;
+        return (player.input instanceof NoInput);
+    }
 
     @LuaWhitelist
     @LuaMethodDoc("host.get_last_death_pos")
