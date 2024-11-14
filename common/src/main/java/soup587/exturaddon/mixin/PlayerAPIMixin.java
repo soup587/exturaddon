@@ -2,6 +2,7 @@ package soup587.exturaddon.mixin;
 
 import net.minecraft.client.multiplayer.PlayerInfo;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import org.figuramc.figura.lua.LuaWhitelist;
 import org.figuramc.figura.lua.api.entity.EntityAPI;
@@ -14,9 +15,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(value = PlayerAPI.class, remap = false)
-public abstract class PlayerAPIMixin extends LivingEntityAPIMixin {
+public abstract class PlayerAPIMixin extends LivingEntityAPIMixin<Player> {
 
     @Shadow private PlayerInfo playerInfo;
+
+    @Shadow protected abstract boolean checkPlayerInfo();
 
     @LuaWhitelist
     @LuaMethodDoc("player.get_destroy_speed")
@@ -40,7 +43,7 @@ public abstract class PlayerAPIMixin extends LivingEntityAPIMixin {
     @LuaMethodDoc("player.can_harm_player")
     public boolean canHarmPlayer(PlayerAPI otherPlayer) {
         checkEntity();
-        return entity.canHarmPlayer(otherPlayer.entity);
+        return entity.canHarmPlayer(otherPlayer.getEntity());
     }
     @LuaWhitelist
     @LuaMethodDoc("player.is_using_spy_glass")

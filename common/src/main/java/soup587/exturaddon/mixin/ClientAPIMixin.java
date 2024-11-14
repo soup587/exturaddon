@@ -28,7 +28,7 @@ public class ClientAPIMixin {
 
     @LuaWhitelist
     @LuaMethodDoc("client.get_mod_name")
-    public String getModName(@LuaNotNil String id) {
+    private static String getModName(@LuaNotNil String id) {
         return PlatformUtils.isModLoaded(id) ? ExturaPlatformUtils.getModName(id) : "";
     }
 

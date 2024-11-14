@@ -35,7 +35,6 @@ public class HostAPIMixin {
     @Shadow @Final private boolean isHost;
     @Shadow @Final private Minecraft minecraft;
 
-    @Unique
     public Boolean canExturaCheat() {
         if(!this.isHost) return false;
         LocalPlayer player = this.minecraft.player;

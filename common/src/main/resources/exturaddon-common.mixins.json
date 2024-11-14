@@ -12,11 +12,13 @@
     "EventsAPIMixin",
     "FiguraAPIManagerMixin",
     "FiguraConfigsMixin",
+    "FiguraLuaPrinterMixin",
     "FiguraLuaRuntimeMixin",
     "HostAPIMixin",
     "LivingEntityAPIMixin",
     "LuaEventMixin",
-    "PlayerAPIMixin"
+    "PlayerAPIMixin",
+    "WorldAPIMixin"
   ],
   "injectors": {
     "defaultRequire": 1
