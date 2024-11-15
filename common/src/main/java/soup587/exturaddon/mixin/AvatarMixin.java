@@ -19,7 +19,7 @@ public abstract class AvatarMixin implements AvatarAccess {
     @Shadow @Final public Avatar.Instructions tick;
 
     public void customEvent(String event) {
-        if (loaded) this.run(event,tick);
+        if (loaded) run(event,tick);
     }
 
 }
