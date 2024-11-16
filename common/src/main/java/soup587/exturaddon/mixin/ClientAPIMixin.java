@@ -27,6 +27,4 @@ import java.util.regex.Pattern;
 @Mixin(value = ClientAPI.class, remap = false)
 public class ClientAPIMixin implements ClientAPIAccess {
 
-
-
 }

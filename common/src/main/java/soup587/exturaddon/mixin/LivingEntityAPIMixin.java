@@ -7,9 +7,12 @@ import org.figuramc.figura.avatar.Avatar;
 import org.figuramc.figura.avatar.AvatarManager;
 import org.figuramc.figura.lua.LuaNotNil;
 import org.figuramc.figura.lua.LuaWhitelist;
+import org.figuramc.figura.lua.api.ClientAPI;
+
 import org.figuramc.figura.lua.api.entity.LivingEntityAPI;
 import org.figuramc.figura.lua.api.world.ItemStackAPI;
 import org.figuramc.figura.lua.docs.LuaMethodDoc;
+import org.figuramc.figura.utils.PlatformUtils;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
@@ -20,11 +23,10 @@ import java.lang.reflect.Method;
 public abstract class LivingEntityAPIMixin<T extends LivingEntity> extends EntityAPIMixin<T> {
 
     @Unique
-
     @LuaWhitelist
     @LuaMethodDoc("entity.get_curio")
     public ItemStackAPI getCurio(@LuaNotNil String slotType, int slot) {
-        if(!ClientAPI.HAS_CURIOS) return null;
+        if(!PlatformUtils.isModLoaded("curios")) return null;
         try {
             Class<?> CuriosAPI = Class.forName("top.theillusivec4.curios.api.CuriosApi");
             Method getCuriosInventory = CuriosAPI.getDeclaredMethod("getCuriosInventory", LivingEntity.class);
