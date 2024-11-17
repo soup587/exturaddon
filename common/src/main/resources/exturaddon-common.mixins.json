@@ -16,6 +16,7 @@
     "FiguraLuaRuntimeMixin",
     "HostAPIMixin",
     "LivingEntityAPIMixin",
+    "LivingEntityMixin",
     "LuaEventMixin",
     "PlayerAPIMixin",
     "WorldAPIMixin"
